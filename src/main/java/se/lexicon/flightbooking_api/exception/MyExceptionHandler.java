@@ -6,19 +6,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
-import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 @ControllerAdvice
 public class MyExceptionHandler {
 
 
-    // Handle resource not found
-    @ExceptionHandler(NoResourceFoundException.class)
-    public ResponseEntity<ErrorResponse> handleNoResourceFound(NoResourceFoundException ex) {
-        System.out.println("HandleNoResourceFound: " + ex.getMessage());
-        String errorMessage = "Resource not found: " + ex.getMessage();
-        return createErrorResponse(HttpStatus.NOT_FOUND, errorMessage);
-    }
+
 
 
     // Handle invalid URI parameters (type mismatch)

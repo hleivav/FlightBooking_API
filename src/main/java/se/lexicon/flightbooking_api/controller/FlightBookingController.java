@@ -25,6 +25,16 @@ public class FlightBookingController {
 
     private final FlightBookingService flightBookingService;
 
+    @RestController
+    @RequestMapping("/api/chat")
+    public static class OpenAIController {
+
+        @GetMapping
+        public String welcome() {
+            return "Welcome to Flight Booking API";
+        }
+    }
+
     @Operation(summary = "Get all flights", description = "Returns a list of all flights")
     @ApiResponse(responseCode = "200", description = "Successfully retrieved all flights")
     @GetMapping

@@ -51,8 +51,11 @@ public class FlightBookingServiceImpl implements FlightBookingService {
         }
 
         flight.setStatus(FlightStatus.AVAILABLE);
+        flight.setPassengerName(null);      // <--- Lägg till denna rad!
+        flight.setPassengerEmail(null);     // <--- Lägg till denna rad!
         flightBookingRepository.save(flight);
     }
+
 
     @Override
     public List<AvailableFlightDTO> findAvailableFlights() {
